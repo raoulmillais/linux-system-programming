@@ -33,7 +33,7 @@ int main ()
 		perror ("writev");
 		return 1;
 	}
-	printf("wrote %d bytes\n", nr);
+	printf("wrote %ld bytes\n", nr);
 
 	if (close (fd)) {
 		perror ("close");
