@@ -1,6 +1,9 @@
-CC=gcc
-CFLAGS=-Wall -Werror -g
-VPATH=src
+CC?=gcc
+CFLAGS?=-Wall -Werror -g
+AWK?=awk
+SORT?=sort
+PR?=pr
+VPATH?=src
 
 # daemon not included yet due to undefined NR_COUNT compiler error
 SOURCES=atexit-example block-count custom-pidof fake-system filesize filetype \
@@ -22,7 +25,8 @@ clean:
 
 .PHONY: help
 help:
-	$(MAKE) --print-data-base --question | \
-	awk '/^[^.%][-A-Za-z0-9_]*:/{ print substr($$1,1,length($$1)-1) }' | \
-	sort | \
-	pr --omit-pagination --width=80 --columns=4
+	$(MAKE) --print-data-base --question |           \
+	$(AWK) '/^[^.%][-A-Za-z0-9_]*:/                  \
+	        { print substr($$1,1,length($$1)-1) }' | \
+	$(SORT) |                                        \
+	$(PR) --omit-pagination --width=80 --columns=4
