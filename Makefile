@@ -6,10 +6,10 @@ PR?=pr
 VPATH?=src
 
 # daemon not included yet due to undefined NR_COUNT compiler error
-SOURCES=atexit-example block-count custom-pidof fake-system filesize filetype \
-getaffinity getscheduler getsid-example map-example naive_writev poll-example \
-print-inode readv rlim schedulerpriorities select-example setaffinity \
-setscheduler wait-example writev
+SOURCES=atexit-example block-count custom-pidof fake-system filesize filetype
+SOURCES+=getaffinity getscheduler getsid-example map-example naive_writev
+SOURCES+=poll-example print-inode readv rlim schedulerpriorities select-example
+SOURCES+=setaffinity setscheduler wait-example writev
 
 all: $(SOURCES) thread
 
@@ -25,7 +25,7 @@ clean:
 
 .PHONY: help
 help:
-	$(MAKE) --print-data-base --question |           \
+	@$(MAKE) --print-data-base --question |           \
 	$(AWK) '/^[^.%][-A-Za-z0-9_]*:/                  \
 	        { print substr($$1,1,length($$1)-1) }' | \
 	$(SORT) |                                        \
