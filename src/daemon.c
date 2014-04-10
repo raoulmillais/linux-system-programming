@@ -5,6 +5,14 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <linux/fs.h>
+#include <linux/limits.h>
+/*
+ *On my system linux/fs.h undefs NR_OPEN and linux/limits.h defines it.
+ *No matter whether I include limits after fs or not gcc errors with a warning
+ *saying NR_OPEN is undefined (gcc 4.8.2 / kernel 3.13.8-1-ARCH) so we must
+ *define it here
+ */
+#define NR_OPEN 1024
 
 int main (void)
 {
