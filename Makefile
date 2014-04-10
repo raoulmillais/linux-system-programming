@@ -1,4 +1,4 @@
-CC?=gcc
+CC=gcc
 CFLAGS?=-Wall -Werror -g
 AWK?=awk
 SORT?=sort
@@ -9,7 +9,7 @@ VPATH?=src
 SOURCES=atexit-example block-count custom-pidof fake-system filesize filetype
 SOURCES+=getaffinity getscheduler getsid-example map-example naive_writev
 SOURCES+=poll-example print-inode readv rlim schedulerpriorities select-example
-SOURCES+=setaffinity setscheduler wait-example writev
+SOURCES+=setaffinity setscheduler wait-example writev daemon find-file-in-dir
 
 all: $(SOURCES) thread
 
