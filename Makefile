@@ -10,7 +10,7 @@ SOURCES=atexit-example block-count custom-pidof fake-system filesize filetype
 SOURCES+=getaffinity getscheduler getsid-example map-example naive_writev
 SOURCES+=poll-example print-inode readv rlim schedulerpriorities select-example
 SOURCES+=setaffinity setscheduler wait-example writev daemon find-file-in-dir
-SOURCES+=eject inotify-q-size
+SOURCES+=eject inotify-q-size calloc
 
 all: $(SOURCES) thread
 
