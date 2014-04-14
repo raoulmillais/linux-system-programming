@@ -11,6 +11,7 @@ SOURCES+=getaffinity getscheduler getsid-example map-example naive_writev
 SOURCES+=poll-example print-inode readv rlim schedulerpriorities select-example
 SOURCES+=setaffinity setscheduler wait-example writev daemon find-file-in-dir
 SOURCES+=eject inotify-q-size calloc sigint more-signals harakiri malloc-usable
+SOURCES+=how-many-hz
 
 all: $(SOURCES) thread
 
@@ -19,6 +20,12 @@ $(SOURCES): %: %.c
 
 thread: thread-example.c
 	$(CC) $(CFLAGS) -pthread $< -o out/$@
+
+# The book says that linking to librt is required for this example although I
+# encountered no compiler, linker warnings, and the program output remains the
+# same
+stop-all-the-clocks: stop-all-the-clocks.c
+	$(CC) $(CFLAGS) -lrt $< -o out/$@
 
 .PHONY: clean
 clean:
