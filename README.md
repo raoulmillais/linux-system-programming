@@ -6,7 +6,7 @@ book by [Robert Love](https://www.rlove.org/).
 Copyright 2007 O’Reilly Media, Inc., ISBN 978-0-596-00958-8.
 
 Not all of the examples are verbatim, and I have annotated where I encountered
-specific issues on my system. I am running an up-to-date arch linux system.
+specific issues on my system. I am running an up-to-date Arch Linux system.
 
 Current versions:
 ```
